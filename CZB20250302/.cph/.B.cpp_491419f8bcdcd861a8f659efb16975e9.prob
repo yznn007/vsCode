@@ -1,0 +1,1 @@
+{"name":"Local: B","url":"d:\\Desktop\\Code\\vsCode\\CZB20250302\\B.cpp","tests":[{"id":1740905868229,"input":"1\n6 3\n2 3 4 5 6 9\n1 3\n2 5\n1 6","output":"2\n2\n4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Desktop\\Code\\vsCode\\CZB20250302\\B.cpp","group":"local","local":true}

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
  #include<bits/stdc++.h>
+=======
+#include<bits/stdc++.h>
+>>>>>>> a433173 (first commit)
 using namespace std;
 
 void quickSort(int arr[], int l, int r) {

@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+<<<<<<< HEAD
 void heapify(vector<int>& arr, int index, int heapSize) {
     int left = index * 2;  // 左子节点
     while (left < heapSize) {
@@ -28,13 +29,57 @@ void heapSort(vector<int>& arr)
     }
 }
 
+=======
+void heapSort(int arr[])
+{
+    if(arr == NULL || sizeof(arr) == NULL) return;
+    for(int i = 0; i < sizeof(arr); i++) heapInsert(arr, i);
+    int heapSize = sizeof(arr);
+    swap(arr[0], arr[sizeof(arr)-1]);
+    while(heapSize > 0)
+    {
+        heapify(arr, 0, heapSize-1);
+        swap(arr[0], arr[heapSize-1]);
+        heapSize--;
+    }
+}
+void heapInsert(int arr[], int index)
+{
+    while(arr[index] > arr[(index - 1)/2])
+    {
+        swap(arr[index], arr[(index - 1)/2]);
+        index = (index - 1)/2;
+    }
+}
+void heapify(int arr[], int index, int heapSize)
+{
+    int left = index * 2 + 1;
+    while(left < heapSize)
+    {
+        int largest = left+1 < heapSize && arr[left + 1] > arr[left] ? left + 1 : left;
+        largest = arr[largest] > arr[index]? largest : index;
+        if(largest == index) break;
+        swap(arr[largest], arr[index]);
+        index = largest;
+        left = index * 2 + 1;
+    }
+}
+>>>>>>> a433173 (first commit)
 int main()
 {
     int n;
     cin >> n;
+<<<<<<< HEAD
     vector<int> arr(n,0);
     for(int i = 0; i < n; i++) cin >> arr[i];
     heapSort(arr);
     for(int i = 0; i < n; i++) cout << arr[i] << " ";
+=======
+    int *arr = new int[n];
+    for(int i = 0; i < n; i++) cin >> arr[i];
+    heapSort(arr);
+    for(int i = 0; i < n; i++) cout << arr[i] << " ";
+    delete[] arr;
+>>>>>>> a433173 (first commit)
     return 0;
 }

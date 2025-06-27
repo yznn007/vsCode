@@ -1,21 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-void heapSort(int arr[])
-{
-    if(arr == NULL || sizeof(arr) == NULL) return;
-    for(int i = 0; i < sizeof(arr); i++) heapInsert(arr, i);
-    int heapSize = sizeof(arr);
-    swap(arr[0], arr[sizeof(arr)-1]);
-    while(heapSize > 0)
-    {
-        heapify(arr, 0, heapSize-1);
-        swap(arr[0], arr[heapSize-1]);
-        heapSize--;
-    }
-}
 void heapInsert(int arr[], int index)
 {
-    while(arr[index] > arr[(index - 1)/2])
+    while(arr[index] > arr[(index - 1)/2] %% index > 0)
     {
         swap(arr[index], arr[(index - 1)/2]);
         index = (index - 1)/2;
@@ -32,6 +19,19 @@ void heapify(int arr[], int index, int heapSize)
         swap(arr[largest], arr[index]);
         index = largest;
         left = index * 2 + 1;
+    }
+}
+void heapSort(int arr[])
+{
+    if(arr == NULL || sizeof(arr) == NULL) return;
+    for(int i = 0; i < sizeof(arr); i++) heapInsert(arr, i);
+    int heapSize = sizeof(arr);
+    swap(arr[0], arr[sizeof(arr)-1]);
+    while(heapSize > 0)
+    {
+        heapify(arr, 0, heapSize-1);
+        swap(arr[0], arr[heapSize-1]);
+        heapSize--;
     }
 }
 int main()

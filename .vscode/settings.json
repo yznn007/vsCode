@@ -49,5 +49,7 @@
         "unordered_set": "cpp",
         "bitset": "cpp"
     },
-    "marscode.chatLanguage": "cn"
+    "marscode.chatLanguage": "cn",
+    "python.languageServer": "None",
+    "openmv.languageServer": "Pyright"
 }

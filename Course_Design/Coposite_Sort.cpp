@@ -183,22 +183,22 @@ int* radixSort(const int arr[], int n) {
     if (min_num < 0) {
         int offset = -min_num;
         for (int i = 0; i < n; ++i) copy[i] += offset;
-
-        int* temp = new int[n];
-        for (int exp = 1; max_num + offset >= exp; exp *= 10) {
-            int count[10] = {0};
-            for (int i = 0; i < n; ++i) count[(copy[i] / exp) % 10]++;
-            for (int i = 1; i < 10; ++i) count[i] += count[i - 1];
-            for (int i = n - 1; i >= 0; --i) {
-                int digit = (copy[i] / exp) % 10;
-                temp[--count[digit]] = copy[i];
-            }
-            memcpy(copy, temp, sizeof(int) * n);
-        }
-        for (int i = 0; i < n; ++i) copy[i] -= offset;
-        delete[] temp;
     }
 
+    int* temp = new int[n];
+    for (int exp = 1; max_num + offset >= exp; exp *= 10) {
+        int count[10] = {0};
+        for (int i = 0; i < n; ++i) count[(copy[i] / exp) % 10]++;
+        for (int i = 1; i < 10; ++i) count[i] += count[i - 1];
+        for (int i = n - 1; i >= 0; --i) {
+            int digit = (copy[i] / exp) % 10;
+            temp[--count[digit]] = copy[i];
+        }
+        memcpy(copy, temp, sizeof(int) * n);
+    }
+    for (int i = 0; i < n; ++i) copy[i] -= offset;
+    delete[] temp;
+    
     return copy;
 }
 

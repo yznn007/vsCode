@@ -214,7 +214,9 @@ void testSort(Func sortFunc, const int arr[], int n, const string& sortName) {
     delete[] sortedArr;
 }
 
-signed main() {
+signed main() 
+{
+    ios::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
     const int N = 50000;
     int* arr = new int[N];
     generateRandomNumbers(N, arr);

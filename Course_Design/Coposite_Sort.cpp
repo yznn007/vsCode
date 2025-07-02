@@ -180,11 +180,11 @@ int* radixSort(const int arr[], int n) {
     int min_num = *min_element(copy, copy + n);
     int max_digits = getMaxDigits(max(abs(max_num), abs(min_num)));
 
+    int offset = 0;
     if (min_num < 0) {
-        int offset = -min_num;
+        offset = -min_num;
         for (int i = 0; i < n; ++i) copy[i] += offset;
     }
-
     int* temp = new int[n];
     for (int exp = 1; max_num + offset >= exp; exp *= 10) {
         int count[10] = {0};
@@ -198,7 +198,7 @@ int* radixSort(const int arr[], int n) {
     }
     for (int i = 0; i < n; ++i) copy[i] -= offset;
     delete[] temp;
-    
+
     return copy;
 }
 
